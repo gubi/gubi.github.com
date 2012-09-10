@@ -13,6 +13,7 @@
 		$(document).ready(function(){
 			// Load data about this page
 			$.get("params.json", function(page_data){
+				alert(page_data.user);
 				$("title").text(page_data.name + " by " + page_data.user);
 				$("h1.header").text(page_data.name);
 				$("p.header").text(page_data.tagline);
