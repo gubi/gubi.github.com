@@ -21,7 +21,7 @@
 				$("section").html("");
 				$.each(repos_data, function(item, data){
 					if(data.name != user + ".github.com"){
-						$(this).append('<h3><a href="' + data.url + '">' + data.name + '</a></h3><p>' + data.description + '</p>');
+						$("section").append('<h3><a href="' + data.url + '">' + data.name + '</a></h3><p>' + data.description + '</p>');
 					}
 				});
 			}, "json");
