@@ -31,6 +31,7 @@
 								
 							});
 						}, "json");
+					}
 					// Repositories data
 					$.get("https://api.github.com/users/" + page_data.user + "/repos", {type: "public", sort: "updated", direction: "desc"}, function(repos_data){
 						$.each(repos_data, function(item, data){
