@@ -334,7 +334,7 @@ a.github > span {
     color: #aaa;
     font-size: 0.8em;
     padding-left: 22px;
-    display: block
+    display: inline-block;
 }
 a.buttons:hover {
 	color: #fff;
