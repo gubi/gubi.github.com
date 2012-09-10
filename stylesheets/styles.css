@@ -424,10 +424,13 @@ footer { }
     padding-left: 10px;
     position: fixed;
     top: 350px;
+	width: 170px;
+	left: -230px;
 }
 #followers a img {
 	width: 20px;
 	height: 20px;
+	margin: 0;
 }
 
 @media print, screen and (max-width: 720px) {
