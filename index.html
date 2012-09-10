@@ -24,7 +24,6 @@
 					$("header").prepend('<img src="' + user_data.avatar_url + '" />').find("a.github").append("<span>" + user_data.public_repos + " repos ~ " + user_data.followers + " followers</span>");
 				}, "json").success(function(){
 					$.get("https://api.github.com/users/" + page_data.user + "/repos", {type: "public", sort: "updated", direction: "desc"}, function(repos_data){
-						$("section").html("");
 						$.each(repos_data, function(item, data){
 							if(data.name != page_data.user + ".github.com" && data.private != "true"){
 								if(data.homepage != null && data.homepage.length > 0){
