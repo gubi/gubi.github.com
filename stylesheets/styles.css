@@ -370,12 +370,15 @@ section p {
 /* Footer */
 
 footer {
-	bottom: 10px;
-    float: left;
+	background-color: #2d2d2d;
     height: 150px;
-    padding-left: 50px;
-    position: relative;
     width: 100%;
+}
+footer > div {
+	width: 960px;
+	height: 100%;
+	padding-right: 85px;
+	border-right: #ccc 1px solid;
 }
 
 @media print, screen and (max-width: 960px) {
@@ -392,7 +395,6 @@ footer {
   }
 
 	footer {
-		background-color: #2d2d2d;
 		border-top: 1px solid #ccc;
 		margin:0 84px 0 50px;
 		padding:0;
