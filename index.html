@@ -13,6 +13,7 @@
 		$(document).ready(function(){
 			$.get("https://api.github.com/users/gubi", function(data){
 				$("header").prepend('<img src="' + data.avatar_url + '" />');
+				$("#loader").fadeOut(300);
 			}, "json");
 		});
 		</script>
