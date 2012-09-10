@@ -89,7 +89,7 @@ a small {
 	font-size: 12px;
 }
 img {
-	border: 0px none;
+	border: 0px none !important;
 }
 em {
 	font-style: italic;
