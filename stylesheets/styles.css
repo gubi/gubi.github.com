@@ -248,6 +248,7 @@ header {
 	margin: 30px 25px 0 0;
 	-webkit-font-smoothing: antialiased;
 	z-index: 1;
+	box-shadow: 0 0 12px #666;
 }
 p.header {
 	font-size: 16px;
@@ -373,6 +374,8 @@ footer {
 	background-color: #2d2d2d;
     height: 150px;
     width: 100%;
+	position: absolute;
+	bottom: 0;
 }
 footer > div {
 	width: 960px;
