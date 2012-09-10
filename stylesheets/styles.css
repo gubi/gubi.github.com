@@ -54,7 +54,6 @@ h1, h2, h3 {
 h1,h2, h3 {
 	display: block;
 	border-bottom: 1px solid #ccc;
-	padding-bottom: 5px;
 }
 
 h1 {
@@ -370,8 +369,10 @@ section h3 i, section h3 i > a {
 section h3 i > a {
 	text-decoration: underline;
 }
+section h3 i > a:hover {
+	text-decoration: none;
+}
 section p {
-	border-bottom: #eaeaea 1px solid;
 	margin-bottom: 0;
  }
 
