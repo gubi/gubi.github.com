@@ -20,9 +20,18 @@
 				$("section").append("<h1>" + page_data.page_title + page_data.user + "</h1>");
 				
 				// Load data from github account...
+				// User data
 				$.get("https://api.github.com/users/" + page_data.user, function(user_data){
 					$("header").prepend('<img src="' + user_data.avatar_url + '" />').find("a.github").append("<span>" + user_data.public_repos + " repos ~ " + user_data.followers + " followers</span>");
 				}, "json").success(function(){
+					// Followers data
+					if(user_data.followers != "0"){
+						$.get("https://api.github.com/users/" + page_data.user + "/followers", {type: "public", sort: "updated", direction: "desc"}, function(repos_data){
+							$.each(repos_data, function(item, data){
+								
+							});
+						}, "json");
+					// Repositories data
 					$.get("https://api.github.com/users/" + page_data.user + "/repos", {type: "public", sort: "updated", direction: "desc"}, function(repos_data){
 						$.each(repos_data, function(item, data){
 							if(data.name != page_data.user + ".github.com" && data.private != "true"){
@@ -57,6 +66,7 @@
 			<header>
 				<h1 class="header"></h1><div><p class="header"></p><ul><li><a class="buttons github" href="javascript:void(0);">GitHub Profile</a></li></ul></div>
 			</header>
+			<div id="followers">sdfffd</div>
 			<section></section>
 			<footer><div></div></footer>
 		</div>

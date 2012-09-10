@@ -419,6 +419,9 @@ footer { }
     top:84px;
   }
 }
+#followers {
+	float: left;
+}
 
 @media print, screen and (max-width: 720px) {
   body {
