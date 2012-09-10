@@ -227,6 +227,7 @@ td {
 	width: 960px;
 	height: 100%;
 	box-shadow: 0 0 30px #dedede;
+	display: none;
 }
 
 
