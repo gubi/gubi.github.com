@@ -20,7 +20,7 @@
 			$.get("https://api.github.com/users/" + user + "/repos", {type: "public", sort: "updated", direction: "desc"}, function(repos_data){
 				$.each(repos_data, function(item, data){
 					if(data.name != user + ".github.com"){
-						$("section").html().append('<h3><a href="' + data.url + '">' + data.name + '</a></h3><p>' + data.description + '</p>');
+						$("section").html("").append('<h3><a href="' + data.url + '">' + data.name + '</a></h3><p>' + data.description + '</p>');
 					}
 				});
 			}, "json");
