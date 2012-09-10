@@ -371,6 +371,7 @@ section p {
 /* Footer */
 
 footer {
+	display: none;
 	background-color: #2d2d2d;
     height: 150px;
     width: 100%;
