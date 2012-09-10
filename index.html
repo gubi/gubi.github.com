@@ -35,10 +35,10 @@
 							}
 						});
 					}, "json").success(function(){
-						$("#loader").fadeOut(450, function(){
-							$(".wrapper").fadeIn(300, function(){
-								$(this).css({"display": "inline-block"});
-								
+						$(".wrapper").fadeIn(300, function(){
+							$(this).css({"display": "inline-block"});
+							
+							$("#loader").fadeOut(450, function(){
 								$("footer").fadeIn(300);
 								$("header").animate({"left": "0"}, 300);
 							});
