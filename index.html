@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="chrome=1">
-		<title>#01 by gubi</title>
+		<title></title>
 
 		<link rel="stylesheet" href="stylesheets/styles.css">
 		<link rel="stylesheet" href="stylesheets/pygment_trac.css">
@@ -11,26 +11,32 @@
 		<script src="http://code.jquery.com/jquery-latest.min.js"></script>
 		<script type="text/javascript">
 		$(document).ready(function(){
-			var user = "gubi";
-			
-			// Load data from github account...
-			$.get("https://api.github.com/users/" + user, function(user_data){
-				$("header").prepend('<img src="' + user_data.avatar_url + '" />').find("a.github").append("<span>" + user_data.public_repos + " repos ~ " + user_data.followers + " followers</span>");
-			}, "json");
-			$.get("https://api.github.com/users/" + user + "/repos", {type: "public", sort: "updated", direction: "desc"}, function(repos_data){
-				$("section").html("");
-				$.each(repos_data, function(item, data){
-					if(data.name != user + ".github.com" && data.private != "true"){
-						if(data.homepage != null && data.homepage.length > 0){
-							var homepage = ' <i>(<a class="homepage" href="' + data.homepage + '">' + data.homepage + '</a>)</i>';
-						} else {
-							var homepage = "";
+			// Load data about this page
+			$.get("params.json", function(page_data){
+				$("title").text(page_data.name + " by " + page_data.user);
+				$("h1.header").text(page_data.name);
+				$("p.header").text(page_data.tagline);
+				$("a.github").attr("href", "https://github.com/" + page_data.user);
+				
+				// Load data from github account...
+				$.get("https://api.github.com/users/" + page_data.user, function(user_data){
+					$("header").prepend('<img src="' + user_data.avatar_url + '" />').find("a.github").append("<span>" + user_data.public_repos + " repos ~ " + user_data.followers + " followers</span>");
+				}, "json");
+				$.get("https://api.github.com/users/" + page_data.user + "/repos", {type: "public", sort: "updated", direction: "desc"}, function(repos_data){
+					$("section").html("");
+					$.each(repos_data, function(item, data){
+						if(data.name != page_data.user + ".github.com" && data.private != "true"){
+							if(data.homepage != null && data.homepage.length > 0){
+								var homepage = ' <i>(<a class="homepage" href="' + data.homepage + '">' + data.homepage + '</a>)</i>';
+							} else {
+								var homepage = "";
+							}
+							$("section").append('<h3><a href="' + data.html_url + '">' + data.name + '</a>' + homepage + '</h3><p>' + data.description + '</p><br /><p>Language: ' + data.language + '</p>');
 						}
-						$("section").append('<h3><a href="' + data.html_url + '">' + data.name + '</a>' + homepage + '</h3><p>' + data.description + '</p><br /><p>Language: ' + data.language + '</p>');
-					}
-				});
+					});
+				}, "json");
+				$("#loader").fadeOut(300);
 			}, "json");
-			$("#loader").fadeOut(300);
 		});
 		</script>
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
@@ -42,11 +48,11 @@
 		<div id="loader"></div>
 		<div class="wrapper">
 			<header>
-				<h1 class="header">#01</h1>
+				<h1 class="header"></h1>
 				<div>
-					<p class="header">A code-blog for a passionate developer</p>
+					<p class="header"></p>
 					<ul>
-						<li><a class="buttons github" href="https://github.com/gubi">GitHub Profile</a></li>
+						<li><a class="buttons github" href="javascript:void(0);">GitHub Profile</a></li>
 					</ul>
 				</div>
 			</header>
@@ -54,6 +60,5 @@
 		</div>
 		<footer><div></div></footer>
 		<!--[if !IE]><script>fixScale(document);</script><![endif]-->
-		
 	</body>
 </html>
