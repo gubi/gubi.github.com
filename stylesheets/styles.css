@@ -349,7 +349,13 @@ section {
   float:right;
   padding-bottom:50px;
 }
-
+section h3 {
+	margin-top: 22px;
+}
+ section p {
+	border-bottom: #eaeaea 1px solid;
+	margin-bottom: 0;
+ }
 
 /* Footer */
 
