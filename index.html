@@ -21,12 +21,12 @@
 				$("section").html("");
 				$.each(repos_data, function(item, data){
 					if(data.name != user + ".github.com" && data.private != "true"){
-						if(data.homepage != null){
+						if(data.homepage != null && data.homepage.length > 0){
 							var homepage = ' <i>(<a class="homepage" href="' + data.homepage + '">' + data.homepage + '</a>)</i>';
 						} else {
 							var homepage = "";
 						}
-						$("section").append('<h3><a href="' + data.html_url + '">' + data.name + '</a>' + homepage + '</h3><p>' + data.description + '</p><p>Language: ' + data.language + '</li><li>Watchers: ' + data.watchers + '</p>');
+						$("section").append('<h3><a href="' + data.html_url + '">' + data.name + '</a>' + homepage + '</h3><p>' + data.description + '</p><br /><p>Language: ' + data.language + '</p>');
 					}
 				});
 			}, "json");
