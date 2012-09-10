@@ -18,7 +18,7 @@
 			$.get("https://api.github.com/users/gubi/repos", function(repos_data){
 				$.each(repos_data, function(item, data){
 					alert(item + " ~ " + data + "\n");
-				}
+				});
 			}, "json");
 			$("#loader").fadeOut(300);
 		});
