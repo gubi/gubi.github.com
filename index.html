@@ -23,16 +23,15 @@
 				// User data
 				$.get("https://api.github.com/users/" + page_data.user, function(user_data){
 					$("header").prepend('<img src="' + user_data.avatar_url + '" />').find("a.github").append("<span>" + user_data.public_repos + " repos ~ " + user_data.followers + " followers</span>");
-				}, "json").success(function(){
-					alert(user_data.followers);
 					// Followers data
 					if(user_data.followers != "0"){
 						$.get("https://api.github.com/users/" + page_data.user + "/followers", {type: "public", sort: "updated", direction: "desc"}, function(repos_data){
-							$.each(repos_data, function(item, data){
-								
+							$.each(repos_data, function(fitem, fdata){
+								$("#followers").html('<a href="https://github.com/' + fdata.login + '"><img src="' + fdata.avatar_url + '" /></a>');
 							});
 						}, "json");
 					}
+				}, "json").success(function(){
 					// Repositories data
 					$.get("https://api.github.com/users/" + page_data.user + "/repos", {type: "public", sort: "updated", direction: "desc"}, function(repos_data){
 						$.each(repos_data, function(item, data){

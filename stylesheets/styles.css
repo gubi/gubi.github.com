@@ -422,6 +422,10 @@ footer { }
 #followers {
 	float: left;
 }
+#followers a img {
+	width: 20px;
+	height: 20px;
+}
 
 @media print, screen and (max-width: 720px) {
   body {
