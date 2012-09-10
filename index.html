@@ -21,7 +21,7 @@
 				$("section").html("");
 				$.each(repos_data, function(item, data){
 					if(data.name != user + ".github.com"){
-						if(data.homepage.length > 0){
+						if(data.homepage != null){
 							var homepage = ' <i>(<a class="homepage" href="' + data.homepage + '">' + data.homepage + '</a>)</i>';
 						} else {
 							var homepage = "";
