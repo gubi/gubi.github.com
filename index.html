@@ -36,9 +36,6 @@
 						});
 					}, "json").success(function(){
 						$(".wrapper").fadeIn(300, function(){
-							$("footer").animate({"bottom": "0"}, 300, function(){
-								$(this).css({"position": "fixed"});
-							});
 							$(".wrapper").css({"display": "inline-block"});
 							$("#loader").fadeOut(450, function(){
 								$("header").animate({"left": "0"}, 300);
@@ -61,8 +58,8 @@
 				<h1 class="header"></h1><div><p class="header"></p><ul><li><a class="buttons github" href="javascript:void(0);">GitHub Profile</a></li></ul></div>
 			</header>
 			<section>Waiting data...</section>
+			<footer><div></div></footer>
 		</div>
-		<footer><div></div></footer>
 		<!--[if !IE]><script>fixScale(document);</script><![endif]-->
 	</body>
 </html>

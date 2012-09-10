@@ -376,20 +376,7 @@ section p {
 
 /* Footer */
 
-footer {
-	background-color: #2d2d2d;
-    height: 150px;
-    width: 100%;
-	position: absolute;
-	bottom: -170px;
-}
-footer > div {
-	width: 960px;
-	height: 100%;
-	padding-right: 85px;
-	background-color: #3d3d3d;
-	box-shadow: 0 0 30px #111;
-}
+footer { }
 
 @media print, screen and (max-width: 960px) {
 
