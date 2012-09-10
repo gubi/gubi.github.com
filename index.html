@@ -21,7 +21,12 @@
 				$("section").html("");
 				$.each(repos_data, function(item, data){
 					if(data.name != user + ".github.com"){
-						$("section").append('<h3><a href="' + data.url + '">' + data.name + '</a></h3><p>' + data.description + '</p>');
+						if(data.homepage.length > 0){
+							var homepage = ' <i>(<a class="homepage" href="' + data.homepage + '">' + data.homepage + '</a>)</i>';
+						} else {
+							var homepage = "";
+						}
+						$("section").append('<h3><a href="' + data.svn_url + '">' + data.name + '</a>' + homepage + '</h3><p>' + data.description + '<br />Language' + data.language + '</p>');
 					}
 				});
 			}, "json");
