@@ -17,7 +17,7 @@
 			$.get("https://api.github.com/users/" + user, function(user_data){
 				$("header").prepend('<img src="' + user_data.avatar_url + '" />').find("a.github").append("<span>" + user_data.public_repos + " repos ~ " + user_data.followers + " followers</span>");
 			}, "json");
-			$.get("https://api.github.com/users/" + user + "/repos", {type: "public", sort: "updated", direction: "desc"}function(repos_data){
+			$.get("https://api.github.com/users/" + user + "/repos", {type: "public", sort: "updated", direction: "desc"}, function(repos_data){
 				$.each(repos_data, function(item, data){
 					if(data.name != user + ".github.com"){
 						$("section").append('<h3><a href="' + data.url + '">' + data.name + '</a></h3><p>' + data.description + '</p>');
