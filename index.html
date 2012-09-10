@@ -27,7 +27,7 @@
 					if(user_data.followers != "0"){
 						$.get("https://api.github.com/users/" + page_data.user + "/followers", {type: "public", sort: "updated", direction: "desc"}, function(repos_data){
 							$.each(repos_data, function(fitem, fdata){
-								$("#followers").html('<a href="https://github.com/' + fdata.login + '"><img src="' + fdata.avatar_url + '" /></a>');
+								$("#followers").append('<a href="https://github.com/' + fdata.login + '"><img src="' + fdata.avatar_url + '" /></a>');
 							});
 						}, "json");
 					}

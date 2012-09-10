@@ -420,7 +420,10 @@ footer { }
   }
 }
 #followers {
-	float: left;
+    float: left;
+    padding-left: 10px;
+    position: fixed;
+    top: 350px;
 }
 #followers a img {
 	width: 20px;
