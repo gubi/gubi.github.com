@@ -249,6 +249,7 @@ header {
 	-webkit-font-smoothing: antialiased;
 	z-index: 1;
 	box-shadow: 0 0 12px #666;
+	left: -230px;
 }
 p.header {
 	font-size: 16px;
@@ -351,10 +352,14 @@ a.buttons:hover {
 section {
   width:650px;
   float:right;
+  padding-top: 25px;
   padding-bottom:50px;
 }
 section h3 {
 	margin-top: 27px;
+}
+section h3:first-child {
+	margin-top: 0;
 }
 section h3 i, section h3 i > a {
 	color: #aaa;
