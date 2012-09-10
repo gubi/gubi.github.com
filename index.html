@@ -35,9 +35,8 @@
 							}
 						});
 					}, "json").success(function(){
-						$(".wrapper").fadeIn(300, function(){
+						$(".wrapper, footer").fadeIn(300, function(){
 							$(this).css({"display": "inline-block"});
-							$("footer").fadeIn(300);
 							$("#loader").fadeOut(450, function(){
 								$("header").animate({"left": "0"}, 300);
 							});
