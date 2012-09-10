@@ -13,7 +13,6 @@
 		$(document).ready(function(){
 			// Load data about this page
 			$.get("params.json", function(page_data){
-				alert(page_data.user);
 				$("title").text(page_data.name + " by " + page_data.user);
 				$("h1.header").text(page_data.name);
 				$("p.header").text(page_data.tagline);
@@ -22,21 +21,23 @@
 				// Load data from github account...
 				$.get("https://api.github.com/users/" + page_data.user, function(user_data){
 					$("header").prepend('<img src="' + user_data.avatar_url + '" />').find("a.github").append("<span>" + user_data.public_repos + " repos ~ " + user_data.followers + " followers</span>");
-				}, "json");
-				$.get("https://api.github.com/users/" + page_data.user + "/repos", {type: "public", sort: "updated", direction: "desc"}, function(repos_data){
-					$("section").html("");
-					$.each(repos_data, function(item, data){
-						if(data.name != page_data.user + ".github.com" && data.private != "true"){
-							if(data.homepage != null && data.homepage.length > 0){
-								var homepage = ' <i>(<a class="homepage" href="' + data.homepage + '">' + data.homepage + '</a>)</i>';
-							} else {
-								var homepage = "";
+				}, "json").success(function(){
+					$.get("https://api.github.com/users/" + page_data.user + "/repos", {type: "public", sort: "updated", direction: "desc"}, function(repos_data){
+						$("section").html("");
+						$.each(repos_data, function(item, data){
+							if(data.name != page_data.user + ".github.com" && data.private != "true"){
+								if(data.homepage != null && data.homepage.length > 0){
+									var homepage = ' <i>(<a class="homepage" href="' + data.homepage + '">' + data.homepage + '</a>)</i>';
+								} else {
+									var homepage = "";
+								}
+								$("section").append('<h3><a href="' + data.html_url + '">' + data.name + '</a>' + homepage + '</h3><p>' + data.description + '</p><br /><p>Language: ' + data.language + '</p>');
 							}
-							$("section").append('<h3><a href="' + data.html_url + '">' + data.name + '</a>' + homepage + '</h3><p>' + data.description + '</p><br /><p>Language: ' + data.language + '</p>');
-						}
+						});
+					}, "json").success(function(){
+						$("#loader").fadeOut(300);
 					});
-				}, "json");
-				$("#loader").fadeOut(300);
+				});
 			}, "json");
 		});
 		</script>
