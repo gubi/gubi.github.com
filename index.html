@@ -35,9 +35,9 @@
 							}
 						});
 					}, "json").success(function(){
+						$(".wrapper").fadeIn(300);
+						$("footer").fadeIn(300);
 						$("#loader").fadeOut(450, function(){
-							$(".wrapper").fadeIn(300);
-							$("footer").fadeIn(300);
 							$("header").animate({"left": "0"}, 300);
 						});
 					});
