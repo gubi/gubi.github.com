@@ -37,11 +37,7 @@
 					}, "json").success(function(){
 						$(".wrapper").fadeIn(300, function(){
 							$("footer").animate({"bottom": "0"}, 300, function(){
-								$(this).css({"position": "absolute"});
-							});
-							$(".wrapper").css({"display": "inline-block"});
-							$("#loader").fadeOut(450, function(){
-								$("header").animate({"left": "0"}, 300);
+								$(this).css({"position": "fixed"});
 							});
 						});
 					});
