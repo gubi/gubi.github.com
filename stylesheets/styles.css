@@ -209,9 +209,16 @@ td {
 }
 #loader:after {
 	content: "Waiting...";
+	font-family: Arvo,Monaco,serif;
+	font-size: 1.2em;
+	text-align: center;
 	position: fixed;
 	left: 50%;
+	top: 50%;
 	color: #fff;
+	width: 100px;
+	margin-top: -0.9em;
+	margin-left: -50px;
 }
 /* Wrapper */
 .wrapper {
