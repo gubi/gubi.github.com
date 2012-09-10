@@ -21,7 +21,7 @@ time, mark, audio, video {
   font: inherit;
   vertical-align: baseline;
 }
-*:active, *:focus *::-moz-focus-inner {
+*:visited, *:active, *:focus *::-moz-focus-inner {
 	outline: 0 !important;
 }
 
