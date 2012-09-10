@@ -330,7 +330,7 @@ a.buttons {
 a.github {
 	background: url(../images/octocat-small.png) no-repeat 1px;
 }
-header li a + span {
+a.github > span {
     color: #aaa;
     font-size: 0.8em;
     padding-left: 22px;
