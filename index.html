@@ -17,7 +17,7 @@
 				$("h1.header").text(page_data.name);
 				$("p.header").text(page_data.tagline);
 				$("a.github").attr("href", "https://github.com/" + page_data.user);
-				$("section").append("<h1>" + page_data.tagline + "</h1>");
+				$("section").append("<h1>" + page_data.page_title + page_data.user + "</h1>");
 				
 				// Load data from github account...
 				$.get("https://api.github.com/users/" + page_data.user, function(user_data){

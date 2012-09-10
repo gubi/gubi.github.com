@@ -356,11 +356,12 @@ section {
   padding-top: 25px;
   padding-bottom:50px;
 }
+section h1:first-child {
+	margin-top: 0;
+	margin-bottom: 3em;
+}
 section h3 {
 	margin-top: 27px;
-}
-section h3:first-child {
-	margin-top: 0;
 }
 section h3 i, section h3 i > a {
 	color: #aaa;
