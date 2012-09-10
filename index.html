@@ -12,7 +12,7 @@
 		<script type="text/javascript">
 		$(document).ready(function(){
 			$.get("https://api.github.com/users/gubi", function(data){
-				$("header").prepend('<img src="' + data.avatar_url + '" />');
+				$("header").prepend('<img src="' + data.avatar_url + '" />').find("li > div").append("<span>" + data.public_repos + " repos ~ " + data.followers + " followers</span>");
 				$("#loader").fadeOut(300);
 			}, "json");
 		});
