@@ -11,10 +11,16 @@
 		<script src="http://code.jquery.com/jquery-latest.min.js"></script>
 		<script type="text/javascript">
 		$(document).ready(function(){
-			$.get("https://api.github.com/users/gubi", function(data){
-				$("header").prepend('<img src="' + data.avatar_url + '" />').find("a.github").append("<span>" + data.public_repos + " repos ~ " + data.followers + " followers</span>");
-				$("#loader").fadeOut(300);
+			// Load data from github account...
+			$.get("https://api.github.com/users/gubi", function(user_data){
+				$("header").prepend('<img src="' + user_data.avatar_url + '" />').find("a.github").append("<span>" + user_data.public_repos + " repos ~ " + user_data.followers + " followers</span>");
 			}, "json");
+			$.get("https://api.github.com/users/gubi/repos", function(repos_data){
+				$.each(repos_data, function(item, data){
+					alert(item + " ~ " + data + "\n");
+				}
+			}, "json");
+			$("#loader").fadeOut(300);
 		});
 		</script>
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
