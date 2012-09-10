@@ -20,13 +20,13 @@
 			$.get("https://api.github.com/users/" + user + "/repos", {type: "public", sort: "updated", direction: "desc"}, function(repos_data){
 				$("section").html("");
 				$.each(repos_data, function(item, data){
-					if(data.name != user + ".github.com"){
+					if(data.name != user + ".github.com" && data.private != "true"){
 						if(data.homepage != null){
 							var homepage = ' <i>(<a class="homepage" href="' + data.homepage + '">' + data.homepage + '</a>)</i>';
 						} else {
 							var homepage = "";
 						}
-						$("section").append('<h3><a href="' + data.svn_url + '">' + data.name + '</a>' + homepage + '</h3><p>' + data.description + '<br />Language' + data.language + '</p>');
+						$("section").append('<h3><a href="' + data.html_url + '">' + data.name + '</a>' + homepage + '</h3><p>' + data.description + '<br /><br /><ul><li>Language: ' + data.language + '</li><li>Watchers: ' + data.watchers + '</li></ul></p>');
 					}
 				});
 			}, "json");
