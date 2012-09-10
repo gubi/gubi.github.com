@@ -39,6 +39,10 @@
 							$("footer").animate({"bottom": "0"}, 300, function(){
 								$(this).css({"position": "fixed"});
 							});
+							$(".wrapper").css({"display": "inline-block"});
+							$("#loader").fadeOut(450, function(){
+								$("header").animate({"left": "0"}, 300);
+							});
 						});
 					});
 				});
